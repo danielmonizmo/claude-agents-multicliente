@@ -1,6 +1,6 @@
 const procesarMensaje = require('./claude-agent.js');
 
-module.exports = async (req, res) => {
+exports.default = async (req, res) => {
   if (req.method === 'POST') {
     try {
       const resultado = await procesarMensaje(req.body);
