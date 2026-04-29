@@ -1,8 +1,7 @@
-const procesarMensaje = require('./claude-agent.js');
-
-exports.default = async (req, res) => {
+export default async function handler(req, res) {
   if (req.method === 'POST') {
     try {
+      const procesarMensaje = require('./claude-agent.js');
       const resultado = await procesarMensaje(req.body);
       res.status(200).json(resultado);
     } catch (error) {
@@ -12,4 +11,4 @@ exports.default = async (req, res) => {
   } else {
     res.status(200).json({ message: 'API is running' });
   }
-};
+}
